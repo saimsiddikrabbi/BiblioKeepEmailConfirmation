@@ -3,19 +3,124 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>BiblioKeep</title>
+  <meta name="color-scheme" content="light dark">
+  <title>Email confirmed · BiblioKeep</title>
   <style>
-    body { font-family: system-ui, sans-serif; background: #faf7f2; color: #222;
-           display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; }
-    main { max-width: 420px; padding: 32px; text-align: center; }
-    h1 { font-size: 1.5rem; margin-bottom: 12px; }
-    p { line-height: 1.5; color: #555; }
+    :root {
+      --bg: #EEF1F6;
+      --card: #ffffff;
+      --ink: #16213E;
+      --body: #2B364F;
+      --muted: #5B6577;
+      --accent: #0E7C66;
+      --tint: #E3F3EE;
+      --line: #E3E7EF;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0E1424;
+        --card: #161F36;
+        --ink: #F1F4FA;
+        --body: #CBD3E3;
+        --muted: #93A0B8;
+        --accent: #3CC2A3;
+        --tint: #14352F;
+        --line: #26324D;
+      }
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 24px 16px;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+    main {
+      width: 100%;
+      max-width: 440px;
+      padding: 40px 32px 36px;
+      text-align: center;
+      background: var(--card);
+      border-top: 5px solid var(--accent);
+      border-radius: 14px;
+      box-shadow: 0 1px 2px rgba(22, 33, 62, 0.08);
+    }
+    .logo {
+      width: 72px;
+      height: 72px;
+      border-radius: 16px;
+      display: block;
+      margin: 0 auto 10px;
+      object-fit: cover;
+    }
+    .brand {
+      margin: 0 0 28px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.25rem;
+      font-weight: bold;
+      letter-spacing: 0.3px;
+    }
+    .check {
+      width: 56px;
+      height: 56px;
+      margin: 0 auto 18px;
+      border-radius: 50%;
+      background: var(--tint);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .check svg { width: 28px; height: 28px; }
+    .check path {
+      fill: none;
+      stroke: var(--accent);
+      stroke-width: 3;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-dasharray: 26;
+      stroke-dashoffset: 26;
+      animation: draw 0.5s ease-out 0.2s forwards;
+    }
+    @keyframes draw { to { stroke-dashoffset: 0; } }
+    @media (prefers-reduced-motion: reduce) {
+      .check path { animation: none; stroke-dashoffset: 0; }
+    }
+    h1 {
+      margin: 0 0 12px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.75rem;
+      line-height: 1.25;
+    }
+    p { margin: 0; line-height: 1.6; color: var(--body); }
+    .step {
+      margin-top: 24px;
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      font-size: 0.95rem;
+    }
+    .step strong { color: var(--accent); }
   </style>
 </head>
 <body>
   <main>
-    <h1>Email confirmed ✓</h1>
-    <p>Go back to the BiblioKeep app and tap <strong>"I've verified my email"</strong>.</p>
+    <img class="logo" src="20260816_140022.png" alt="BiblioKeep logo" width="72" height="72">
+    <p class="brand">BiblioKeep</p>
+
+    <div class="check" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>
+    </div>
+
+    <h1>Email confirmed</h1>
+    <p>Your email address is verified and your account is ready.</p>
+
+    <p class="step">Go back to the BiblioKeep app and tap <strong>"I've verified my email"</strong>.</p>
   </main>
 </body>
 </html>
